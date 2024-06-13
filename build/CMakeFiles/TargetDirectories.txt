@@ -1,0 +1,3 @@
+/home/alexandra/allxdrstp/workspace/fun/build/CMakeFiles/ConcatenateWords.dir
+/home/alexandra/allxdrstp/workspace/fun/build/CMakeFiles/edit_cache.dir
+/home/alexandra/allxdrstp/workspace/fun/build/CMakeFiles/rebuild_cache.dir
