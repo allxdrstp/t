@@ -1,18 +1,27 @@
 cmake_minimum_required(VERSION 3.10)
-project(funExample)
+project(FunTest)
 
+# Установка стандарта языка C++
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-find_package(GTest REQUIRED PATHS /usr/src/gtest)
+# Поиск Google Test
+find_package(GTest REQUIRED)
+
+# Добавление библиотеки Google Test
 include_directories(${GTEST_INCLUDE_DIRS})
 
-add_library(fun SHARED fun.cpp)
+# Добавление исходных файлов
+add_executable(fun fun.cpp)
 
-add_executable(funExample fun.cpp)
-target_link_libraries(funExample PRIVATE fun)
+# Добавление тестового исходного файла
+add_executable(test1 test1.cpp)
 
+# Связывание тестового исходного файла с библиотекой Google Test
+target_link_libraries(test1 ${GTEST_LIBRARIES} ${GTEST_MAIN_LIBRARIES})
+
+# Включение тестирования
 enable_testing()
-add_executable(funExampleTests test1.cpp)
-target_link_libraries(funExampleTests fun)
-add_test(NAME funExampleTests COMMAND funExampleTests)
+
+# Добавление теста
+add_test(NAME FunTest COMMAND test1)
