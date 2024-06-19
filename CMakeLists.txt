@@ -4,6 +4,9 @@ project(CompositeExample)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
+find_package(GTest REQUIRED)
+include_directories(${GTEST_INCLUDE_DIRS})
+
 add_library(fun SHARED fun.cpp)
 
 add_executable(funExample fun.cpp)
