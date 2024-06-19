@@ -1,19 +1,23 @@
 #include <iostream>
 #include <string>
-#include "your_code_file.h"
+#include "fun.h"
+#include <gtest/gtest.h>
 
 
-int main() {
+TEST(BTest, SomeFunc) {
+    B b;
+    std::string result = b.someFunc("Hello", "World");
+    EXPECT_EQ(result, "Hello World.");
+}
+
+// Тест для метода f1 класса A
+TEST(ATest, F1) {
     A a;
     std::string result = a.f1("Hello", "World");
-    std::cout << "Result: " << result << std::endl;
+    EXPECT_EQ(result, "Hello World.");
+}
 
-    // Проверка результата
-    if (result == "Hello World.") {
-        std::cout << "Test passed: Function call is correct." << std::endl;
-    } else {
-        std::cout << "Test failed: Function call is incorrect." << std::endl;
-    }
-
-    return 0;
+int main(int argc, char** argv) {
+    ::testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
 }
